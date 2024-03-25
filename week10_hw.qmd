@@ -1,0 +1,88 @@
+---
+title: "Week10_hw"
+format: pdf
+editor: visual
+---
+
+## Week 10_hw
+
+1.  Use code chunk options eval, include, echo, results, dependson in at least one code chunk to illustrate your knowledge and mastery of the code chunk options.
+
+    \# A code chunk with include = FALSE was used to upload packages but not present any code and results
+
+    ```{r, include=FALSE}
+    library(ggplot2)
+    library(psych)
+    ```
+
+    \# This is an analysis code chunk with eval = FALSE. We used it to show the simple way to explore the relationship between two variables in mtcars without executing it.
+
+    ```{r, eval=FALSE}
+    plot(mtcars$wt, mtcars$mpg, 
+         xlab = "Weight", ylab = "Miles Per Gallon",
+         main = "Scatter plot of mpg vs. wt")
+    ```
+
+    \# This is an analysis code chunk with results = "hide".
+
+    ```{r, results='hide'}
+    summary(mtcars)
+    ```
+
+    #This is an analysis code chunk with echo=FALSE, as I only want to see the Scatterplot without showing code in the presentation
+
+    ```{r, echo=FALSE}
+    plot(mtcars$wt, mtcars$mpg, 
+         xlab = "Weight", ylab = "Miles Per Gallon",
+         main = "Scatter plot of mpg vs. wt")
+    ```
+
+    setup data
+
+    ```{r, setup}
+    data <- c(1, 2, 3, 4, 5)
+    ```
+
+    \# This is an analysis code chunk with dependson, so the current code chunk depends on the results from another code chunk as specified.
+
+    ```{r, dependson='setup'}
+    mean(data)
+    ```
+
+```{=html}
+<!-- -->
+```
+2.  Pick one new code chunk not discussed in the book and describe and illustrate how to use it.
+
+    \# This is an analysis code chunk with fig.width and fig.height. This is very useful for consistency in gene differential expression visualization to Set the width and height of figures, respectively.
+
+    ```{r, fig.width=5, fig.height=5}
+    plot(mtcars$wt, mtcars$mpg, 
+         xlab = "Weight", ylab = "Miles Per Gallon",
+         main = "Scatter plot of mpg vs. wt")
+    ```
+
+```{=html}
+<!-- -->
+```
+3.  Save an object with save()
+
+    ```{r}
+    # The previous setup data has been saved here.
+    save(data, file = "data.RData")
+    ```
+
+4.  Save an R script and load it in a new code chunk.
+
+    ```{r, include=TRUE}
+    # Run main analysis
+    source("scatter.R")
+    ```
+
+5.  Write one statement using the inline static code "\\texttt" and with \\verb
+
+    texttt{This is week 10 homework}.
+
+    \\verb\|\\\\texttt\|. 
+
+    \\verb\|Look at this example.\|
